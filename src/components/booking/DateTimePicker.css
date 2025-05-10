@@ -1,0 +1,139 @@
+.date-time-picker {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.date-picker h3,
+.time-picker h3 {
+  margin-bottom: var(--space-4);
+  font-size: var(--text-lg);
+  color: var(--neutral-800);
+}
+
+.calendar {
+  background-color: white;
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+  box-shadow: var(--shadow);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: var(--space-4);
+}
+
+.month-year {
+  font-weight: 600;
+  font-size: var(--text-lg);
+  color: var(--primary-700);
+}
+
+.weekdays {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  text-align: center;
+  margin-bottom: var(--space-2);
+}
+
+.weekdays div {
+  font-weight: 500;
+  color: var(--neutral-600);
+  font-size: var(--text-sm);
+  padding: var(--space-2) 0;
+}
+
+.days-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 2px;
+}
+
+.day {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 100%;
+  border: none;
+  background: none;
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  color: var(--neutral-700);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.day:hover:not(.past-date):not(.other-month) {
+  background-color: var(--primary-50);
+}
+
+.day.other-month {
+  color: var(--neutral-400);
+}
+
+.day.today {
+  border: 1px solid var(--primary-600);
+  color: var(--primary-600);
+  font-weight: 500;
+}
+
+.day.selected {
+  background-color: var(--primary-600);
+  color: white;
+  font-weight: 500;
+}
+
+.day.past-date {
+  color: var(--neutral-300);
+  cursor: not-allowed;
+}
+
+.time-picker {
+  margin-top: var(--space-4);
+}
+
+.time-slots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-2);
+}
+
+.time-slot {
+  padding: var(--space-2);
+  border: 1px solid var(--neutral-300);
+  border-radius: var(--radius-md);
+  background: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: var(--text-sm);
+}
+
+.time-slot:hover {
+  border-color: var(--primary-400);
+  background-color: var(--primary-50);
+}
+
+.time-slot.selected {
+  border-color: var(--primary-600);
+  background-color: var(--primary-600);
+  color: white;
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .date-time-picker {
+    flex-direction: row;
+  }
+
+  .date-picker,
+  .time-picker {
+    flex: 1;
+  }
+  
+  .time-slots {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
